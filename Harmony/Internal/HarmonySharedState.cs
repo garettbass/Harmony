@@ -52,7 +52,7 @@ namespace HarmonyLib
 		{
 			return AppDomain.CurrentDomain.GetAssemblies()
 				.Where(a => a.FullName.StartsWith("Microsoft.VisualStudio") == false)
-				.FirstOrDefault(a => a.GetName().Name.Contains(name));
+				.FirstOrDefault(a => a.SafeGetName().Contains(name));
 		}
 
 		internal static PatchInfo GetPatchInfo(MethodBase method)

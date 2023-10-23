@@ -30,7 +30,7 @@ namespace HarmonyLib
 			if (DEBUG)
 			{
 				var assembly = typeof(Harmony).Assembly;
-				var version = assembly.GetName().Version;
+				var version = assembly.SafeGetVersion();
 				var location = assembly.Location;
 				if (string.IsNullOrEmpty(location)) location = new Uri(assembly.CodeBase).LocalPath;
 				FileLog.Log($"### Harmony id={id}, version={version}, location={location}");
