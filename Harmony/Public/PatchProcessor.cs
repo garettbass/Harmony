@@ -226,7 +226,7 @@ namespace HarmonyLib
 		///
 		public static Dictionary<string, Version> VersionInfo(out Version currentVersion)
 		{
-			currentVersion = typeof(Harmony).Assembly.GetName().Version;
+			currentVersion = typeof(Harmony).Assembly.SafeGetVersion();
 			var assemblies = new Dictionary<string, Assembly>();
 			GetAllPatchedMethods().Do(method =>
 			{

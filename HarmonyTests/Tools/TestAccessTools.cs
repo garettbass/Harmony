@@ -71,7 +71,7 @@ namespace HarmonyLibTests
 
 		static void SaveAssembly(AssemblyBuilder assemblyBuilder)
 		{
-			var assemblyFileName = assemblyBuilder.GetName().Name + ".dll";
+			var assemblyFileName = assemblyBuilder.SafeGetName() + ".dll";
 #if NETCOREAPP
 			// For some reason, ILPack requires referenced dynamic assemblies to be passed in rather than looking them up itself.
 			var currentAssemblies = AppDomain.CurrentDomain.GetAssemblies();
